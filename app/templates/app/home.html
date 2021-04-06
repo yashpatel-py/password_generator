@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <style>
+        h1{
+            text-align: center;
+        }
+
+        .opthon{
+            font-size: 20px;
+            color: black;
+            font-weight: bolder;
+        }
+
+        span{
+            color: black;
+            font-weight: bolder;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+{% endblock style %}
+
+{% block body %}
+<div class="container">
+    <h1>Password Generator</h1>
+    <form action="{% url 'password_generate' %}">
+
+        <label class="opthon">Select Length of your password</label>
+        <select class="browser-default conrainer" name="length" required>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14" selected="14">14</option>
+        </select>
+
+        <div class="switch">
+            <span for="upparcase">Include uppercase</span>
+            <label>
+                Off
+                <input type="checkbox" name="uppercase">
+                <span class="lever"></span>
+                On
+            </label>
+        </div>
+
+        <div class="switch">
+            <span for="number">Include Number</span>
+            <label>
+                Off
+                <input type="checkbox" name="number">
+                <span class="lever"></span>
+                On
+            </label>
+        </div>
+
+        <div class="switch">
+            <span for="special">Include Special Characters</span>
+            <label>
+                Off
+                <input type="checkbox" name="special">
+                <span class="lever"></span>
+                On
+            </label>
+        </div>
+
+        <button class="btn waves-effect waves-light" style="font-size: 20px; margin-top: 10px" type="submit"
+            name="action">
+            <i class="material-icons" style="font-size: 19px;">send</i> Submit</button>
+    </form>
+</div>
+{% endblock body %}
